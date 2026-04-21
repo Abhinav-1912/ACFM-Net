@@ -1,0 +1,161 @@
+/* ============================================================
+   App.css  –  Global styles for ACFM-Net
+   Dark theme with gradient background.
+   ============================================================ */
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #e2e8f0;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- App Shell ---------- */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ---------- Header ---------- */
+.app-header {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.app-header h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-subtitle {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Alert Banner ---------- */
+.alert-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: linear-gradient(90deg, rgba(239,68,68,0.25), rgba(220,38,38,0.15));
+  border-bottom: 1px solid rgba(239, 68, 68, 0.45);
+  color: #fca5a5;
+  font-size: 0.9rem;
+  animation: slideDown 0.3s ease;
+}
+
+.alert-banner .alert-icon { font-size: 1.2rem; }
+.alert-banner .alert-text { flex: 1; }
+.alert-banner .alert-dismiss {
+  background: transparent;
+  border: none;
+  color: #fca5a5;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: background 0.15s;
+}
+.alert-banner .alert-dismiss:hover { background: rgba(239, 68, 68, 0.25); }
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Main Content ---------- */
+.app-main {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+/* ---------- Responsive Grid ---------- */
+.dashboard-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+/* Wide screens: camera 4 cols, gauge 3, state 2, timeline 3 */
+.grid-camera    { grid-column: span 4; }
+.grid-gauge     { grid-column: span 3; }
+.grid-state     { grid-column: span 2; }
+.grid-stats     { grid-column: span 3; }
+.grid-timeline  { grid-column: span 12; }
+
+@media (max-width: 1100px) {
+  .grid-camera   { grid-column: span 6; }
+  .grid-gauge    { grid-column: span 3; }
+  .grid-state    { grid-column: span 3; }
+  .grid-stats    { grid-column: span 6; }
+  .grid-timeline { grid-column: span 12; }
+}
+
+@media (max-width: 720px) {
+  .grid-camera, .grid-gauge, .grid-state,
+  .grid-stats, .grid-timeline {
+    grid-column: span 12;
+  }
+}
+
+/* ---------- Card ---------- */
+.card {
+  background: rgba(30, 41, 59, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+/* ---------- Footer ---------- */
+.app-footer {
+  padding: 14px 24px;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #475569;
+  border-top: 1px solid rgba(148, 163, 184, 0.08);
+}

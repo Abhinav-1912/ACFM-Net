@@ -1,0 +1,33 @@
+# ACFM-Net Backend Dependencies
+# Web Framework
+fastapi
+uvicorn[standard]
+websockets
+pydantic
+
+# Deep Learning
+torch
+torchvision
+torchaudio
+
+# Data Processing
+numpy
+pandas
+scikit-learn
+scipy
+
+# Computer Vision
+opencv-python-headless
+mediapipe
+Pillow
+
+# Visualization
+matplotlib
+seaborn
+
+# Utilities
+requests
+tqdm
+
+# Database
+sqlalchemy
